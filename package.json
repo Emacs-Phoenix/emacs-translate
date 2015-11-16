@@ -1,0 +1,22 @@
+{
+  "name": "emacs-translate",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Emacs-Phoenix/emacs-translate.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Emacs-Phoenix/emacs-translate/issues"
+  },
+  "homepage": "https://github.com/Emacs-Phoenix/emacs-translate#readme",
+  "dependencies": {
+    "request": "^2.65.0"
+  }
+}
