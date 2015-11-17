@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/Emacs-Phoenix/emacs-translate#readme",
   "dependencies": {
+    "md5": "^2.0.0",
     "request": "^2.65.0"
   }
 }
