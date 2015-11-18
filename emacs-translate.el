@@ -17,7 +17,3 @@
 (provide 'emacs-translate)
 
 
-
-
-
-
