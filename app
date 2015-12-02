@@ -1,3 +1,5 @@
+#! /usr/bin/env node
+
 var request = require('request'),
     md5 = require('md5');
 
@@ -53,6 +55,8 @@ var baiduTranslate = function(type, content, cb){
         body = JSON.parse(body);
         if ( !error && !body.error_code ) {
             cb(body.trans_result[0].dst);
+        } else {
+            process.exit(0);
         }
     });
     
