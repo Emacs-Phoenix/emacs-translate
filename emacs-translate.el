@@ -3,7 +3,7 @@
 
                                         ;(defvar popup nil)
 
-(setq process-command "/Users/tyan/.emacs.d/site-lisp/emacs-translate/app")
+(defvar process-command "~/.emacs.d/site-lisp/emacs-translate/app")
 
 (defvar process-name "*translate-process*")
 
