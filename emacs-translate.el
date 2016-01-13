@@ -1,9 +1,9 @@
 (require 'popup)
 
 
-                                        ;(defvar popup nil)
+(defvar process-command
+  (expand-file-name "site-lisp/emacs-translate/app" user-emacs-directory))
 
-(defvar process-command "~/.emacs.d/site-lisp/emacs-translate/app")
 
 (defvar process-name "*translate-process*")
 
