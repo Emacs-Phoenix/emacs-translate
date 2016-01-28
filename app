@@ -34,51 +34,33 @@ var checkHasChinese = function(text){
     return /.*[\u4e00-\u9fa5]+.*$/.test(text);
 };
 
-
+var iconv = require('iconv-lite');
 
 var baiduTranslate = function(type, content, cb){
     var url,
         salt = parseInt((Math.random() * 10000000000), 10),
         sign;
-
+    
     sign = md5(baiduSercet.appid + content + salt + baiduSercet.key);
-
 
     
     if ( type === 'zh' ) {
-        url = 'http://api.fanyi.baidu.com/api/trans/vip/translate?q=' + content + '&appid=20151117000005653&salt=' + salt + '&from=zh&to=en&sign=' + sign;
+        url = 'http://api.fanyi.baidu.com/api/trans/vip/translate?q=' + encodeURIComponent(content) + '&appid=20151117000005653&salt=' + salt + '&from=zh&to=en&sign=' + sign;
     } else {
         url = 'http://api.fanyi.baidu.com/api/trans/vip/translate?q=' + content + '&appid=20151117000005653&salt=' + salt + '&from=en&to=zh&sign=' + sign;
     }
-;
-    request(url, function(error, response, body){
+    
+    request({
+        url: url
+    }, function(error, response, body){
         body = JSON.parse(body);
         if ( !error && !body.error_code ) {
             cb(body.trans_result[0].dst);
         } else {
             process.exit(0);
         }
-    });
-    
+    });  
 };
-
-
-
-
-var googleTranslate = function(type, content, cb){
-    var url;
-    
-    if ( type === 'zh' ) {
-        url = googleApi.zh2en + content;
-    } else {
-        url = googleApi.en2zh + content;
-    }
-
-    request(url, function(error, response, body){
-    });
-
-};
-
 
 if ( checkHasChinese(qContent) ) {
     baiduTranslate('zh', qContent, function(res){
@@ -89,4 +71,5 @@ if ( checkHasChinese(qContent) ) {
         console.log(res);
     });
 }
+
 
