@@ -1,9 +1,12 @@
 (require 'popup)
 
+;;TODO
+;; add interactive input
 
-                                        ;(defvar popup nil)
 
-(setq process-command "/Users/tyan/.emacs.d/site-lisp/emacs-translate/app")
+(defvar process-command
+  (expand-file-name "site-lisp/emacs-translate/app" user-emacs-directory))
+
 
 (defvar process-name "*translate-process*")
 
@@ -24,10 +27,8 @@
                      :margin 3)
           (kill-buffer output-buf)
           (let ((readed-event (read-event)))
-
             ;;todo
             ;;拦截输入事件 替换文本
-            
             ;;(message (type-of readed-event))
             ;; (if (pcase 'return  readed-event)
             ;;     (message "Matched")
