@@ -34,8 +34,6 @@ var checkHasChinese = function(text){
     return /.*[\u4e00-\u9fa5]+.*$/.test(text);
 };
 
-var iconv = require('iconv-lite');
-
 var baiduTranslate = function(type, content, cb){
     var url,
         salt = parseInt((Math.random() * 10000000000), 10),
